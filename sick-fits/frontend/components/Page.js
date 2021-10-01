@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
 export default function Page({ children, cool }) {
   return (
     <div>
+      <GlobalStyles />
       <Header />
       <h2>the page component</h2>
       {cool}
