@@ -6,12 +6,13 @@ export async function insertSeedData(ks: any) {
   const adapter = keystone.adapters?.MongooseAdapter || keystone.adapter;
 
   console.log(`🌱 Inserting Seed Data: ${products.length} Products`);
+
   const { mongoose } = adapter;
   for (const product of products) {
     console.log(`  🛍️ Adding Product: ${product.name}`);
     const { _id } = await mongoose
-    .model('ProductImage')
-    .create({ image: product.photo, altText: product.description });
+      .model('ProductImage')
+      .create({ image: product.photo, altText: product.description });
     product.photo = _id;
     await mongoose.model('Product').create(product);
   }
