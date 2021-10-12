@@ -38,6 +38,9 @@ export default withAuth(
         db: {
             adapter: 'mongoose',
             url: databaseURL,
+            onConnect() {
+
+            }
         },
         lists: createSchema({
             User,
